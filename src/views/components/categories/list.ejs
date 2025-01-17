@@ -1,9 +1,12 @@
 <div class="content">
   <div class="content-fluid">
-    <h4 class="page-title">Danh mục sản phẩm</h4>
+    <div class="flex justify-content-between">
+      <h4 class="page-title">Danh mục sản phẩm</h4>
+      <a class="btn btn-default" href="/categories/create">Thêm sản phẩm</a>
+    </div>
     <div class="card">
       <div class="card-body">
-        <table class="table table-head-bg-success">
+        <table class="table table-head-bg-success mb-5">
           <thead>
             <tr>
               <th scope="col">STT</th>
@@ -15,7 +18,7 @@
           <tbody>
             <% categories.forEach(function(category, index){ %>
             <tr>
-              <td><%=index%></td>
+              <td><%=index+1%></td>
               <td>
                 <img
                   src="<%=category.image%>"

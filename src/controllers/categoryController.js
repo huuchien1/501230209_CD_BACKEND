@@ -12,3 +12,24 @@ export async function listCategory(req, res) {
     res.send("Hiện tại không có sản phẩm nào!");
   }
 }
+export async function renderPageCreateCategory(req, res) {
+  res.render("pages/categories/create", {
+    title: "CreateCategories",
+  });
+}
+
+export async function createCategory(req, res) {
+  const { code, name, image } = req.body;
+  try {
+    await CategoryModel.create({
+      code,
+      name,
+      image,
+      createdAt: new Date(),
+    });
+    res.redirect("/categories");
+  } catch (error) {
+    console.log(error);
+    res.send("Thêm sản phẩm mới không thành công !!");
+  }
+}
